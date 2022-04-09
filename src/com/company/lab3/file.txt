@@ -1,0 +1,12 @@
+main
+{
+    intreg varsta = 21;
+    real rubla = 0.15;
+    real bani = Donatii[varsta, rubla];
+}
+    real Donatii[intreg varsta, real rubla]
+    {
+        intreg donatie = varsta * 5;
+        rubla = rubla * donatie;
+        intoarce rubla;
+    }

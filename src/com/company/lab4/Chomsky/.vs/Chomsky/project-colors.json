@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6cf49eef-48b9-4232-a2ee-c9fbebee9d87": {
+      "ProjectGuid": "6cf49eef-48b9-4232-a2ee-c9fbebee9d87",
+      "DisplayName": "Chomsky",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

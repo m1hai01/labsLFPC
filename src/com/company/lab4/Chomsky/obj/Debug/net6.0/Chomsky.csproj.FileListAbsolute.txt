@@ -1,0 +1,60 @@
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.exe
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.deps.json
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.runtimeconfig.json
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\ref\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.pdb
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.AssemblyReference.cache
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.GeneratedMSBuildEditorConfig.editorconfig
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfoInputs.cache
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfo.cs
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.CoreCompileInputs.cache
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\ref\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.pdb
+D:\UTM\Anul 2\Semestrul 4\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.genruntimeconfig.cache
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.exe
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.deps.json
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.runtimeconfig.json
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\ref\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\bin\Debug\net6.0\Chomsky.pdb
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.AssemblyReference.cache
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.GeneratedMSBuildEditorConfig.editorconfig
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfoInputs.cache
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfo.cs
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.CoreCompileInputs.cache
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\ref\Chomsky.dll
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.pdb
+D:\UTM\Anul 2\Semestrul 4\LFPC\LFPC\Laborator4\Chomsky\obj\Debug\net6.0\Chomsky.genruntimeconfig.cache
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.exe
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.deps.json
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.runtimeconfig.json
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.dll
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\ref\Chomsky.dll
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.pdb
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.AssemblyReference.cache
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfoInputs.cache
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfo.cs
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.CoreCompileInputs.cache
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.dll
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\ref\Chomsky.dll
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.pdb
+C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.genruntimeconfig.cache
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.exe
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.deps.json
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.runtimeconfig.json
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.dll
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\bin\Debug\net6.0\Chomsky.pdb
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.AssemblyReference.cache
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.GeneratedMSBuildEditorConfig.editorconfig
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfoInputs.cache
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.AssemblyInfo.cs
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.csproj.CoreCompileInputs.cache
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.dll
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\refint\Chomsky.dll
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.pdb
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\Chomsky.genruntimeconfig.cache
+D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\src\com\company\lab4\Chomsky\obj\Debug\net6.0\ref\Chomsky.dll
