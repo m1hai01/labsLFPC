@@ -191,19 +191,115 @@ namespace SimplePrecedence
 
         public void StringVerification(string writeLine)
         {
-            var word = FirstStageParse("$<" + writeLine);
-            if (string.IsNullOrEmpty(word.ToString())) {
-                Console.WriteLine("Ignore");
-                return;
-            }
-
+            var word = FirstStageParse(writeLine);
             Console.WriteLine(word);
             MainParse(word);
         }
 
-        private string Ambiguity(List<string> replacement, StringBuilder writeLine, int left, int right)
+
+        //parse
+        public void MainParse(string writeLine)
+
         {
-            
+            while (true)
+            {
+
+                //abcefedg
+                var word = writeLine.ToString(); //cuvantul parsat cu simboluri
+
+                //cautam de la dreapta la stanga paranteze inchise
+                
+                int parenthesisLeft = word.Length - 1;
+                int parenthesisRight = word.Length - 1;
+                
+                for (int j = 0; j < word.Length - 1; j++)
+                {
+                    if (word[j] == '<')
+                    {
+                        parenthesisLeft = j;
+                        break;
+                    }
+
+                }
+                
+
+                for (int j = parenthesisLeft; j < word.Length - 1; j++)
+                {
+                    if (word[j] == '<')
+                    {
+                        for (int i = j; i < word.Length - 1; i++)
+                        {
+                            if (word[i] == '<')
+                            {
+                                parenthesisLeft = i;
+                                break;
+                            }
+                        }
+                    }
+                    if (word[j] == '>')
+                    {
+                        parenthesisRight = j;
+                        break;
+                    }
+                }
+
+                /*while (word[parenthesisLeft] != '<')
+              {
+                  parenthesisLeft--;
+              }*/
+
+
+                /*parenthesisRight = parenthesisLeft;
+
+                while (word[parenthesisRight] != '>')
+                {
+                    parenthesisRight++;
+                }*/
+                var length = parenthesisRight - parenthesisLeft - 1;
+                var wordInsideParenthesis = word.Substring(parenthesisLeft + 1, length);
+
+                wordInsideParenthesis = wordInsideParenthesis.Replace("=", string.Empty);
+
+                var prevChar = writeLine[parenthesisLeft - 1];
+                var nextChar = writeLine[parenthesisRight + 1];
+
+                var transitionReplaced = ReplaceInsideParenthesis(wordInsideParenthesis);
+
+                if (transitionReplaced.Count == 0) //nu-s transitii cu care putem inlocui cuvantul
+                {
+                    Console.WriteLine("Rejected");
+                    return;
+                }
+
+                //one transition
+                if (transitionReplaced.Count == 1)
+                {
+                    //inlocuim cuvantul cu transitia (transitiaSchimbata, caracter prev, nextChar)
+                    wordInsideParenthesis = ReplaceSigns(transitionReplaced[0], prevChar, nextChar);
+                }
+                else
+                {
+                    //daca is mai multe transitii, rezolvam ambiguitatea
+                    wordInsideParenthesis = Ambiguity(transitionReplaced, writeLine, parenthesisLeft, parenthesisRight);
+                }
+
+                writeLine = writeLine.Remove(parenthesisLeft, length + 2);
+                writeLine = writeLine.Insert(parenthesisLeft, wordInsideParenthesis);
+
+                Console.WriteLine(writeLine);
+
+                if (writeLine == "$<S>$")
+                {
+                    Console.WriteLine("Accepted");
+                    return;
+                }
+            }
+        }
+
+        
+        private string Ambiguity(List<string> replacement, string writeLine, int left, int right)
+        {
+
             var modifyOfState = replacement[0];
             var symbols = new char[2];
             foreach (var substitution in replacement)
@@ -226,121 +322,90 @@ namespace SimplePrecedence
                 }
             }
 
+            modifyOfState = symbols[0] + modifyOfState + symbols[1];
             return modifyOfState;
         }
 
-        //parse
-        public void MainParse(StringBuilder writeLine)
+
+        private string FirstStageParse(string writeLine)
         {
-            while (true)
+            //state initial
+            var path = "$< >$";
+            int index = 2;
+            try
             {
-                string tempInput = writeLine.ToString();
-                if (tempInput.Contains("S"))
+                if (writeLine.Length == 1)
                 {
-                    Console.WriteLine("Recognized");
-                    return;
+                    path = path.Remove(index, 1).Insert(2, writeLine);
+                    return path;
                 }
 
-
-                int left = writeLine.Length - 1;
-                int right = writeLine.Length - 1;
-
-                while (writeLine[left] != '<')
+                for (int i = 0; i < writeLine.Length - 1; i++)
                 {
-                    if (writeLine[left] == '>')
-                    {
-                        right = left;
-                    }
-                    left--;
+                    int first = _indexes[writeLine[i]];
+                    int second = _indexes[writeLine[i + 1]];
+
+                    //sign is intersection of the two adjacent characters
+                    var sign = _matrix[first, second].ToString();
+                    var word = writeLine[i] + sign + writeLine[i + 1];
+                    path = path.Remove(index, 1).Insert(index, word);
+                    index += 2;
                 }
-                
-                var state = tempInput.Substring(left + 1, right - left - 1);
-                var replacement = state.Length == 1 ? SingleGetReplace(state) : ComposedGetReplace(state);
-
-                if (replacement.Count == 0) //empty
-                {
-                    Console.WriteLine("Rejected");
-                    return;
-                }
-
-                //one transition
-                if (replacement.Count == 1)
-                {
-                    state = replacement[0];
-                }
-                else
-                {
-                    state = Ambiguity(replacement, writeLine, left, right);
-                }
-
-                //inside parantheses, modify the state
-                writeLine.Remove(left + 1, right - left - 1);
-                writeLine.Insert(left + 1, state); 
-                right = left + 2;
-
-                // add the required operators in the word fo  pars
-                char leftSign = _matrix[_indexes[writeLine[left - 1]], _indexes[writeLine[left + 1]]];
-                char rightSign = _matrix[_indexes[writeLine[right - 1]], _indexes[writeLine[right + 1]]];
-
-                writeLine[left] = leftSign;
-                writeLine[right] = rightSign;
-
-                Console.WriteLine(writeLine);
-                ;
             }
-        }
-
-        private StringBuilder FirstStageParse(string writeLine)
-        {
-            //make initial string 
-            for (int i = 3; i < writeLine.Length; i++) {
-                //incorect
-                if (!(_nonTerminals.Contains(writeLine[i - 1].ToString()) ^ _terminals.Contains(writeLine[i - 1].ToString()))) return new StringBuilder();
-
-                if (!(_nonTerminals.Contains(writeLine[i].ToString()) ^ _terminals.Contains(writeLine[i].ToString()))) return new StringBuilder();
-                
-
-                int first = _indexes[writeLine[i - 1]];
-                int second = _indexes[writeLine[i]];
-
-                if (_matrix[first, second] == '\0')
-                {
-                    return new StringBuilder();
-                } 
-            
-
-
-                writeLine = writeLine.Insert(i, _matrix[first, second].ToString());
-                i++;
-            }
-
-            writeLine += ">$";
-            var result = new StringBuilder(writeLine);
-            return result;
-        }
-
-        private List<string> SingleGetReplace(string topOfStack)
-        {
-            var result = new List<string>();
-            foreach (var (key, list) in _transitions)
+            catch
             {
-                
-                foreach (var transition in list)
-                {
-                    if (transition.Equals(topOfStack)) result.Add(key);
-                    
+                Console.WriteLine("Word invalid. Try again");
+                Environment.Exit(-1);
+            }
+
+            return path;
+        }
+        //
+        private string ReplaceSigns(string replace, char previous, char next)
+        {
+            string leftSign = "", rightSign = "";
+
+            if (previous == '$')
+            {
+                leftSign = "<";
+            }
+            else
+            {
+                //left sign
+                int first = _indexes[previous];
+                int second = _indexes[replace[0]];
+                leftSign =  _matrix[first, second].ToString();
+            }
+
+            if (next == '$')
+            {
+                rightSign = ">";
+            }
+            else
+            {
+                //right sign
+                int first = _indexes[replace[0]];
+                int second = _indexes[next];
+                rightSign = _matrix[first, second].ToString();
+            }
+
+            return leftSign + replace + rightSign;
+        }
+
+        private List<string> ReplaceInsideParenthesis(string wordInsideParenthesis)
+        {
+            var changingCharacter = new List<string>();
+            foreach (var (key, dictionary) in _transitions){
+                for (var i = 0; i < dictionary.Count; i++){
+                    var transition = dictionary[i];
+                    if (transition.Equals(wordInsideParenthesis)) 
+                        changingCharacter.Add(key);
                 }
             }
 
-            
-            return result.Count != 0 ? result : new List<string>(); //dont found transition
-        }
-
-        private List<string> ComposedGetReplace(string topOfStack)
-        {//for composed
-            var miniStates = topOfStack.Split('=').ToList();
-            string state = string.Concat(miniStates);
-            return SingleGetReplace(state);
+            if (changingCharacter.Count != 0)
+                return changingCharacter;
+            return new();//not found
         }
     }
 }
