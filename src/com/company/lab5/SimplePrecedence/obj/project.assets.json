@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mustu\\.nuget\\packages\\": {},
-    "D:\\Software\\VS Tools\\NuGetPackages": {}
+    "C:\\Users\\mustu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UTM\\Anul2\\Semestru2\\LFPC\\lfpclabs\\labsLFPC\\src\\com\\company\\lab5\\SimplePrecedence\\SimplePrecedence.csproj",
+      "projectUniqueName": "C:\\Users\\mustu\\Desktop\\lfpclabs\\src\\com\\company\\lab5\\SimplePrecedence\\SimplePrecedence.csproj",
       "projectName": "SimplePrecedence",
-      "projectPath": "D:\\UTM\\Anul2\\Semestru2\\LFPC\\lfpclabs\\labsLFPC\\src\\com\\company\\lab5\\SimplePrecedence\\SimplePrecedence.csproj",
+      "projectPath": "C:\\Users\\mustu\\Desktop\\lfpclabs\\src\\com\\company\\lab5\\SimplePrecedence\\SimplePrecedence.csproj",
       "packagesPath": "C:\\Users\\mustu\\.nuget\\packages\\",
-      "outputPath": "D:\\UTM\\Anul2\\Semestru2\\LFPC\\lfpclabs\\labsLFPC\\src\\com\\company\\lab5\\SimplePrecedence\\obj\\",
+      "outputPath": "C:\\Users\\mustu\\Desktop\\lfpclabs\\src\\com\\company\\lab5\\SimplePrecedence\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Software\\VS Tools\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\mustu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -65,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

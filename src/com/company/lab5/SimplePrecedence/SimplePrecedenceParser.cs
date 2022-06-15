@@ -207,10 +207,10 @@ namespace SimplePrecedence
                 //abcefedg
                 var word = writeLine.ToString(); //parsed word with symbols
 
-                //cautam de la dreapta la stanga paranteze inchise
-                
-                int parenthesisLeft = word.Length - 1;
-                int parenthesisRight = word.Length - 1;
+                //we are looking for closed brackets from right to left
+
+                int parenthesisLeft = 0;
+                int parenthesisRight = 0;
                 
                 for (int j = 0; j < word.Length - 1; j++)
                 {
@@ -221,8 +221,6 @@ namespace SimplePrecedence
                     }
 
                 }
-                
-
                 for (int j = parenthesisLeft; j < word.Length - 1; j++)
                 {
                     if (word[j] == '<')
@@ -243,29 +241,21 @@ namespace SimplePrecedence
                     }
                 }
 
-                /*while (word[parenthesisLeft] != '<')
-              {
-                  parenthesisLeft--;
-              }*/
-
-
-                /*parenthesisRight = parenthesisLeft;
-
-                while (word[parenthesisRight] != '>')
-                {
-                    parenthesisRight++;
-                }*/
                 var length = parenthesisRight - parenthesisLeft - 1;
+                
+                //we take the word out in parentheses
                 var wordInsideParenthesis = word.Substring(parenthesisLeft + 1, length);
-
                 wordInsideParenthesis = wordInsideParenthesis.Replace("=", string.Empty);
-
+                
+                //right and left letter of <*>
                 var prevChar = writeLine[parenthesisLeft - 1];
                 var nextChar = writeLine[parenthesisRight + 1];
-
+                
+                //find transition of <*>
                 var transitionReplaced = ReplaceInsideParenthesis(wordInsideParenthesis);
-
-                if (transitionReplaced.Count == 0) //nu-s transitii cu care putem inlocui cuvantul
+                
+                //there are no transitions that we can replace
+                if (transitionReplaced.Count == 0)  
                 {
                     Console.WriteLine("Rejected");
                     return;
@@ -274,7 +264,7 @@ namespace SimplePrecedence
                 //one transition
                 if (transitionReplaced.Count == 1)
                 {
-                    //inlocuim cuvantul cu transitia (transitiaSchimbata, caracter prev, nextChar)
+                    //replace word  with transition (changed transition, character prev, next char)
                     wordInsideParenthesis = ReplaceSigns(transitionReplaced[0], prevChar, nextChar);
                 }
                 else
@@ -282,8 +272,9 @@ namespace SimplePrecedence
                     //daca is mai multe transitii, rezolvam ambiguitatea
                     wordInsideParenthesis = Ambiguity(transitionReplaced, writeLine, parenthesisLeft, parenthesisRight);
                 }
-
+                //take out <*>
                 writeLine = writeLine.Remove(parenthesisLeft, length + 2);
+                //and put  the transition that we find
                 writeLine = writeLine.Insert(parenthesisLeft, wordInsideParenthesis);
 
                 Console.WriteLine(writeLine);
@@ -300,14 +291,17 @@ namespace SimplePrecedence
         
         private string Ambiguity(List<string> replacement, string writeLine, int left, int right)
         {
-
+            // the temporary variable by which we will choose the final states with which we will replace
+            // C -> e | D -> e , we need to chose only one state
             var modifyOfState = replacement[0];
             var symbols = new char[2];
             foreach (var substitution in replacement)
             {
+                //find SIGNS from "x<e>y" firstly x and C && C and y  after firstly x and D || DF and y
                 var tempLeft = _matrix[_indexes[writeLine[left - 1]], _indexes[substitution[0]]];
                 var tempRight = _matrix[_indexes[substitution[0]], _indexes[writeLine[right + 1]]];
                 //priority of right =
+                //if NULL , we skip both if
                 if (tempLeft != '\0' && tempRight == '=')
                 {
                     modifyOfState = substitution;
@@ -335,20 +329,24 @@ namespace SimplePrecedence
             int index = 2;
             try
             {
+                //remove space and put character
                 if (writeLine.Length == 1)
                 {
                     path = path.Remove(index, 1).Insert(2, writeLine);
                     return path;
                 }
-
+                //iterate word
                 for (int i = 0; i < writeLine.Length - 1; i++)
                 {
+                    //indexes of curent character and next character
                     int first = _indexes[writeLine[i]];
                     int second = _indexes[writeLine[i + 1]];
 
                     //sign is intersection of the two adjacent characters
                     var sign = _matrix[first, second].ToString();
+                    //create word with new sign
                     var word = writeLine[i] + sign + writeLine[i + 1];
+                    //put a word in aour path
                     path = path.Remove(index, 1).Insert(index, word);
                     index += 2;
                 }
@@ -373,6 +371,7 @@ namespace SimplePrecedence
             else
             {
                 //left sign
+                //take sign from  "y<x>z" from y and x based on indexes
                 int first = _indexes[previous];
                 int second = _indexes[replace[0]];
                 leftSign =  _matrix[first, second].ToString();
@@ -385,6 +384,7 @@ namespace SimplePrecedence
             else
             {
                 //right sign
+                //take sign from  "y<x>z" from x and z based on indexes
                 int first = _indexes[replace[0]];
                 int second = _indexes[next];
                 rightSign = _matrix[first, second].ToString();
@@ -396,9 +396,12 @@ namespace SimplePrecedence
         private List<string> ReplaceInsideParenthesis(string wordInsideParenthesis)
         {
             var changingCharacter = new List<string>();
+            //traverse transition
             foreach (var (key, dictionary) in _transitions){
+                //travers operations of transitions
                 for (var i = 0; i < dictionary.Count; i++){
                     var transition = dictionary[i];
+                    //add when find <*> in transitions
                     if (transition.Equals(wordInsideParenthesis)) 
                         changingCharacter.Add(key);
                 }
