@@ -9,7 +9,7 @@ namespace SimplePrecedence
         {
             Console.OutputEncoding = Encoding.Unicode;
             var lines = System.IO.File.ReadAllLines(
-                @"C:\Users\mustu\Desktop\lfpclabs\src\com\company\lab5\SimplePrecedence\source.txt");
+                @"D:\UTM\Anul2\Semestru2\LFPC\lfpclabs\labsLFPC\src\com\company\lab5\SimplePrecedence\source.txt");
             var terminals = lines[0].Split(',').ToList();
             var nonTerminals = lines[1].Split(',').ToList();
             var transitions = Initialization(lines[2..]);

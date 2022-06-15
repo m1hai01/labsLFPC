@@ -209,19 +209,27 @@ namespace SimplePrecedence
 
                 //we are looking for closed brackets from right to left
 
-                int parenthesisLeft = 0;
-                int parenthesisRight = 0;
+                int parenthesisLeft = word.Length - 1;
+                int parenthesisRight = word.Length - 1;
                 
-                for (int j = 0; j < word.Length - 1; j++)
+                for (int j = parenthesisRight; j > 0; j--)
                 {
                     if (word[j] == '<')
                     {
                         parenthesisLeft = j;
+                        for (int i = parenthesisLeft; i < word.Length - 1; i++)
+                        {
+                            if (word[i] == '>')
+                            {
+                                parenthesisRight = i;
+                                break;
+                            }
+                        }
                         break;
                     }
 
                 }
-                for (int j = parenthesisLeft; j < word.Length - 1; j++)
+                /*for (int j = parenthesisLeft; j < word.Length - 1; j++)
                 {
                     if (word[j] == '<')
                     {
@@ -239,7 +247,7 @@ namespace SimplePrecedence
                         parenthesisRight = j;
                         break;
                     }
-                }
+                }*/
 
                 var length = parenthesisRight - parenthesisLeft - 1;
                 
