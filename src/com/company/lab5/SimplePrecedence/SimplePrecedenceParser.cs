@@ -205,7 +205,7 @@ namespace SimplePrecedence
             {
 
                 //abcefedg
-                var word = writeLine.ToString(); //cuvantul parsat cu simboluri
+                var word = writeLine.ToString(); //parsed word with symbols
 
                 //cautam de la dreapta la stanga paranteze inchise
                 
@@ -288,6 +288,7 @@ namespace SimplePrecedence
 
                 Console.WriteLine(writeLine);
 
+                //base case
                 if (writeLine == "$<S>$")
                 {
                     Console.WriteLine("Accepted");
